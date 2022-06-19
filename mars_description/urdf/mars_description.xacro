@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="mars_description" xmlns:xacro="http://www.ros.org/wiki/xacro">
+   <xacro:include filename="$(find mars_description)/urdf/mars.gazebo"/>
+
+  <link name="robot_footprint"></link>
+
+  <joint name="joint_base" type="fixed">
+    <parent link="robot_footprint"/>
+    <child link="base_link"/>
+  </joint>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0 0.0 0.0"
+        rpy="0 0 0" />
+      <mass
+        value="8.0" />
+      <inertia
+        ixx="0.111424595743643"
+        ixy="0.000285200140583398"
+        ixz="0.0149647244391036"
+        iyy="0.21330942945063"
+        iyz="-0.000127385520291689"
+        izz="0.276191858848227" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="lidar_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/lidar_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.101960784313725 0.101960784313725 0.101960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/lidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="-0.18429 -0.0025 0.2361"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <link
+    name="f_right_wheel">
+    <inertial>
+      <origin
+        xyz="-3.51622397865015E-10 0.0213980898710126 -6.81263956359146E-09"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="0.000726774825013214"
+        ixy="1.71639829087586E-12"
+        ixz="-3.56649985152474E-13"
+        iyy="0.00138480171948626"
+        iyz="3.93402707484334E-11"
+        izz="0.000726774825589035" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/f_right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/f_right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="f_right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.51281 0.25 -0.45099"
+      rpy="0 0.8499 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="f_right_wheel" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="f_left_wheel">
+    <inertial>
+      <origin
+        xyz="-3.7626424198578E-10 0.0213980898739943 -6.77986522479301E-09"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="0.000726774825008615"
+        ixy="1.82066143680538E-12"
+        ixz="-3.18311471234708E-13"
+        iyy="0.00138480171984699"
+        iyz="3.92031593939367E-11"
+        izz="0.000726774825979575" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/f_left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/f_left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="f_left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.51281 -0.25  -0.45099"
+      rpy="3.1416 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="f_left_wheel" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="caster_right_wheel">
+    <inertial>
+      <origin
+        xyz="-3.66989716393817E-10 0.0213980898714701 -6.81396664092837E-09"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="0.000726774825061988"
+        ixy="1.77799930280766E-12"
+        ixz="-6.50884741612042E-13"
+        iyy="0.0013848017195564"
+        iyz="3.93461922720339E-11"
+        izz="0.000726774825614215" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/caster_right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/caster_right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="caster_right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0037762 0.25  -0.45099"
+      rpy="3.1416 -1.3122 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="caster_right_wheel" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="caster_left_wheel">
+    <inertial>
+      <origin
+        xyz="-4.41380273909914E-10 0.0213980898684211 -6.77543954274995E-09"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="0.000726774825027202"
+        ixy="2.09565517112948E-12"
+        ixz="-5.70000104945306E-13"
+        iyy="0.0013848017191395"
+        iyz="3.91825145543534E-11"
+        izz="0.000726774825206115" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/caster_left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/caster_left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="caster_left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0037762 -0.25  -0.45099"
+      rpy="3.1416 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="caster_left_wheel" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="b_right_wheel">
+    <inertial>
+      <origin
+        xyz="-3.72254449487741E-10 0.0213980898649881 -6.81598205654055E-09"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="0.000726774825074398"
+        ixy="1.80543096302695E-12"
+        ixz="-2.53635681251099E-13"
+        iyy="0.00138480171871371"
+        iyz="3.93561284979339E-11"
+        izz="0.000726774824705581" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/b_right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/b_right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="b_right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.51046 0.25  -0.45099"
+      rpy="3.1416 -0.87626 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="b_right_wheel" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="b_left_wheel">
+    <inertial>
+      <origin
+        xyz="-2.93204016621473E-10 0.0213980898737605 -6.80619688386841E-09"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="0.000726774825744372"
+        ixy="1.47351593107068E-12"
+        ixz="-4.95784934558253E-13"
+        iyy="0.00138480171982676"
+        iyz="3.93124533377325E-11"
+        izz="0.000726774825220936" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/b_left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mars_description/meshes/b_left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="b_left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.51046 -0.25  -0.45099"
+      rpy="3.1416 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="b_left_wheel" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+  <joint name="laser_data_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 -1.5707 -1.5707"/>
+    <parent link="lidar_link"/>
+    <child link="laser_data_link"/>
+  </joint>
+
+  <link name="laser_data_link">
+  </link>
+
+
+
+
+</robot>
